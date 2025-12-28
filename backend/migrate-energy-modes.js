@@ -3,11 +3,11 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 const pool = new Pool({
-  user: process.env.DB_USER || 'iot_user',
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'iot_devices',
-  password: process.env.DB_PASSWORD || 'Tomwoker159357',
-  port: process.env.DB_PORT || 5432,
+  user: process.env.DB_USER || 'DB_USER',
+  host: process.env.DB_HOST || 'DB_HOST',
+  database: process.env.DB_NAME || 'DB_NAME',
+  password: process.env.DB_PASSWORD || 'your-secret-key-change-this',
+  port: process.env.DB_PORT || 1234,
 });
 
 async function migrateEnergyModes() {
@@ -267,4 +267,5 @@ console.log('============================================\n');
 migrateEnergyModes().catch(error => {
   console.error('Fatal error:', error);
   process.exit(1);
+
 });
